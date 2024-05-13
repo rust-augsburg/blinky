@@ -17,9 +17,6 @@ use rp2040_hal as hal;
 use defmt::*;
 use defmt_rtt as _;
 
-//semihosting is necessary for the hprintln! macro using openOCD
-//use cortex_m_semihosting::hprintln;
-
 //This is necessary to load a boot image
 //it is places in the beginning of flash see the memory.x file to find the starting address
 //for more details of the boot sequence see the section 2.7 int he rp2040 datasheet
@@ -29,8 +26,6 @@ pub static BOOT2: [u8; 256] = rp2040_boot2::BOOT_LOADER_W25Q080;
 
 #[entry]
 fn main() -> ! {
-    //hprintln!("Hello OpenOCD"); //this line needs semihosting and works when debugging with openOCD
-
     //on this block we are preparing the peripherals for configuration
     let mut pac = pac::Peripherals::take().unwrap();
     let core = pac::CorePeripherals::take().unwrap();
