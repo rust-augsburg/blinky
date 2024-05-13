@@ -5,7 +5,7 @@ This is a basic example of a blinky led for the rp2040.
 It can be easily adjusted to run on any of the boards Raspberry Pico, Pico H, Pico W, Pico WH
 
 This project is also helpful to test the configuration of your hardware setup.
-You either can debug it with openOCD or probe-rs.
+You can debug it using probe-rs.
 
 
 References
