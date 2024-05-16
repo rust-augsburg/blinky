@@ -59,9 +59,12 @@ fn main() -> ! {
         &mut pac.RESETS,
     );
 
-    //it defines that the pin 2 fo rp2040 will be attached to the GPIO peripheral as an output
+    //it defines that the pin of rp2040 will be attached to the GPIO peripheral as an output
     //a push pull output is a configuration defined in the rp2040 that allow is to the GPIO physical pin to "high" (1,8V - 3,3V) or low (0V)
-    let mut led_pin = pins.gpio28.into_push_pull_output();
+    // Pico internal LED on Gpio25 (does NOT WORK on Pico W)
+    let mut led_pin = pins.gpio25.into_push_pull_output();
+    // for an external LED on Gpio28
+    //let mut led_pin = pins.gpio28.into_push_pull_output();
 
     loop {
         //this will set the corresponding bit (bit 2) in the the register SIO: GPIO_OUT_SET(see in rp2040 datasheet) to "high"
